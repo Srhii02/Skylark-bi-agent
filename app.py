@@ -7,8 +7,12 @@ import os
 import streamlit as st
 from dotenv import load_dotenv
 
-from backend import monday_client
-from backend.agent import run_agent
+try:
+    from backend import monday_client
+    from backend.agent import run_agent
+except ModuleNotFoundError:
+    import monday_client
+    from agent import run_agent
 
 load_dotenv()
 
